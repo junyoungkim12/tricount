@@ -28,12 +28,12 @@ jobs:
         aws-region: ap-northeast-2
 
     - name: Upload to S3
-      run: aws s3 cp ./tricount.zip s3://tricount-bucket/tricount.zip
+      run: aws s3 cp ./tricount.zip s3://tricount-bucket00/tricount.zip
 
     - name: Code deploy
       run: aws deploy create-deployment --application-name tricount-codeDeploy
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name group1
-        --s3-location bucket=tricount-bucket,bundleType=zip,key=tricount.zip
+        --s3-location bucket=tricount-bucket00,bundleType=zip,key=tricount.zip
 
 
